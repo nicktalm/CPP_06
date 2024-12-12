@@ -1,5 +1,6 @@
 .devcontainer
 .vscode
 *.o
-program
+convert
+serializer
 .DS_Store
