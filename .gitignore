@@ -3,4 +3,5 @@
 *.o
 convert
 serializer
+identify
 .DS_Store
