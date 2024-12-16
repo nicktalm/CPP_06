@@ -6,7 +6,7 @@
 /*   By: ntalmon <ntalmon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:14:25 by ntalmon           #+#    #+#             */
-/*   Updated: 2024/12/13 15:52:53 by ntalmon          ###   ########.fr       */
+/*   Updated: 2024/12/16 13:29:02 by ntalmon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 Base *generate(void)
 {
-	srand(static_cast<unsigned>(time(0))); // Seed initialisieren
 	int i = rand() % 3;
 	std::cout << "Random number: " << i << std::endl;
 	if (i == 0)
@@ -66,8 +65,15 @@ void identify(Base& p)
 
 int main(void)
 {
-	Base *p = generate();
-	identify(p);
-	identify(*p);
+	srand(static_cast<unsigned>(time(0))); // Seed initialisieren
+	for (int i = 0; i < 5; i++)
+	{
+		Base *p = generate();
+		std::cout << "Identifying pointer: ";
+		identify(p);
+		std::cout << "Identifying reference: ";
+		identify(*p);
+		delete p;
+	}
 	return 0;
 }
